@@ -37,7 +37,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         SysUser sysUser = new SysUser();
         sysUser.setLoginName("test"+id);
         sysUser.setNickName("test"+id);
-        sysUser.setPhone("19900000000");
+        //sysUser.setPhone("19900000000");
         sysUser.setPassword("123456");
         this.save(sysUser);
         Random random = new Random();

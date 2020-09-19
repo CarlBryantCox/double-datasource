@@ -2,6 +2,9 @@ package com.chw.test.controller;
 
 
 import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.chw.test.entity.Score;
 import com.chw.test.service.ScoreService;
 import com.chw.test.service.StudentService;
 import com.chw.test.service.SysUserService;
@@ -56,6 +59,21 @@ public class ScoreController {
     @GetMapping("/testFive/{id}")
     public String testFive(@PathVariable("id") Integer id){
         return studentService.saveStudent(id);
+    }
+
+    @GetMapping("/testSix/{id}")
+    public String testSix(@PathVariable("id") Integer id){
+        QueryWrapper<Score> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("student_id",id);
+        return JSON.toJSONString(scoreService.list(queryWrapper));
+    }
+
+    @GetMapping("/testSeven/{id}")
+    public String testSeven(@PathVariable("id") Integer id){
+        QueryWrapper<Score> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("student_id",id);
+        Page<Score> page = new Page<>(1,10);
+        return JSON.toJSONString(scoreService.page(page,queryWrapper));
     }
 
 
