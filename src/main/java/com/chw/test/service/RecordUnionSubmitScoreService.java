@@ -1,7 +1,7 @@
 package com.chw.test.service;
 
+import com.chw.test.entity.RecordUnionSubmitScore;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.chw.test.entity.MonitorSingleGetPaper;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.chw.test.entity.MonitorSingleGetPaper;
  * @author ChenWei
  * @since 2020-09-24
  */
-public interface MonitorSingleGetPaperService extends IService<MonitorSingleGetPaper> {
+public interface RecordUnionSubmitScoreService extends IService<RecordUnionSubmitScore> {
 
 }

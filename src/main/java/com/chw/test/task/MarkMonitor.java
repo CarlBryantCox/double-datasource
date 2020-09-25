@@ -20,6 +20,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
 
 @SuppressWarnings({"Duplicates"})
 @Slf4j
@@ -80,6 +81,7 @@ public class MarkMonitor {
         } catch (RestClientException e) {
             log.info(e.toString());
         }
+        log.info("----获取监控记录完成----"+ LocalDateTime.now());
     }
 
 }
