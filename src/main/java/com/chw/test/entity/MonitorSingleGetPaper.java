@@ -47,6 +47,8 @@ public class MonitorSingleGetPaper extends Model<MonitorSingleGetPaper> {
 
     private Long jdbcExecuteTimeMillis;
 
+    private String histogram;
+
     /**
      * 创建时间
      */
@@ -63,6 +65,7 @@ public class MonitorSingleGetPaper extends Model<MonitorSingleGetPaper> {
         monitorSingleGetPaper.setJdbcExecuteCount(content.getJdbcExecuteCount());
         monitorSingleGetPaper.setJdbcExecuteTimeMillis(content.getJdbcExecuteTimeMillis());
         monitorSingleGetPaper.setJdbcExecutePeak(content.getJdbcExecutePeak());
+        monitorSingleGetPaper.setHistogram(content.getHistogram().toString());
         return monitorSingleGetPaper;
     }
 

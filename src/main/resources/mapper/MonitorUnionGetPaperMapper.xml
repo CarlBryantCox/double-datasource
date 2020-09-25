@@ -14,6 +14,7 @@
         <result column="jdbc_execute_count" property="jdbcExecuteCount" />
         <result column="jdbc_execute_peak" property="jdbcExecutePeak" />
         <result column="jdbc_execute_time_millis" property="jdbcExecuteTimeMillis" />
+        <result column="histogram" property="histogram" />
         <result column="create_time" property="createTime" />
     </resultMap>
 

@@ -47,6 +47,8 @@ public class MonitorUnionSubmitScore extends Model<MonitorUnionSubmitScore> {
 
     private Long jdbcExecuteTimeMillis;
 
+    private String histogram;
+
     /**
      * 创建时间
      */
@@ -63,6 +65,7 @@ public class MonitorUnionSubmitScore extends Model<MonitorUnionSubmitScore> {
         monitorUnionSubmitScore.setJdbcExecuteCount(content.getJdbcExecuteCount());
         monitorUnionSubmitScore.setJdbcExecuteTimeMillis(content.getJdbcExecuteTimeMillis());
         monitorUnionSubmitScore.setJdbcExecutePeak(content.getJdbcExecutePeak());
+        monitorUnionSubmitScore.setHistogram(content.getHistogram().toString());
         return monitorUnionSubmitScore;
     }
 

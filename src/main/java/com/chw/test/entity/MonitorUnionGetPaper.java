@@ -47,6 +47,8 @@ public class MonitorUnionGetPaper extends Model<MonitorUnionGetPaper> {
 
     private Long jdbcExecuteTimeMillis;
 
+    private String histogram;
+
     /**
      * 创建时间
      */
@@ -63,6 +65,7 @@ public class MonitorUnionGetPaper extends Model<MonitorUnionGetPaper> {
         monitorUnionGetPaper.setJdbcExecuteCount(content.getJdbcExecuteCount());
         monitorUnionGetPaper.setJdbcExecuteTimeMillis(content.getJdbcExecuteTimeMillis());
         monitorUnionGetPaper.setJdbcExecutePeak(content.getJdbcExecutePeak());
+        monitorUnionGetPaper.setHistogram(content.getHistogram().toString());
         return monitorUnionGetPaper;
     }
 

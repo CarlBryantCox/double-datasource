@@ -3,9 +3,12 @@ package com.chw.test.dto;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 public class DruidUrlMonitorContentJson {
+
+    private List<Integer> Histogram;
 
     private Integer ConcurrentMax;
 

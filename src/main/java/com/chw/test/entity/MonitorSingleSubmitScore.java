@@ -47,6 +47,8 @@ public class MonitorSingleSubmitScore extends Model<MonitorSingleSubmitScore> {
 
     private Long jdbcExecuteTimeMillis;
 
+    private String histogram;
+
     /**
      * 创建时间
      */
@@ -63,6 +65,7 @@ public class MonitorSingleSubmitScore extends Model<MonitorSingleSubmitScore> {
         monitorSingleSubmitScore.setJdbcExecuteCount(content.getJdbcExecuteCount());
         monitorSingleSubmitScore.setJdbcExecuteTimeMillis(content.getJdbcExecuteTimeMillis());
         monitorSingleSubmitScore.setJdbcExecutePeak(content.getJdbcExecutePeak());
+        monitorSingleSubmitScore.setHistogram(content.getHistogram().toString());
         return monitorSingleSubmitScore;
     }
 

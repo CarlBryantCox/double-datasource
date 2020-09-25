@@ -23,7 +23,7 @@ CREATE TABLE `monitor_single_all` (
   `jdbc_execute_time_millis` bigint(20) unsigned NOT NULL DEFAULT '0',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=193 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `monitor_single_get_paper` */
 
@@ -38,9 +38,10 @@ CREATE TABLE `monitor_single_get_paper` (
   `jdbc_execute_count` int(11) unsigned NOT NULL DEFAULT '0',
   `jdbc_execute_peak` int(11) unsigned NOT NULL DEFAULT '0',
   `jdbc_execute_time_millis` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `histogram` varchar(255) DEFAULT NULL,
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=308 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `monitor_single_submit_score` */
 
@@ -55,9 +56,10 @@ CREATE TABLE `monitor_single_submit_score` (
   `jdbc_execute_count` int(11) unsigned NOT NULL DEFAULT '0',
   `jdbc_execute_peak` int(11) unsigned NOT NULL DEFAULT '0',
   `jdbc_execute_time_millis` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `histogram` varchar(255) DEFAULT NULL,
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=308 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `monitor_union_all` */
 
@@ -69,7 +71,7 @@ CREATE TABLE `monitor_union_all` (
   `jdbc_execute_time_millis` bigint(20) unsigned NOT NULL DEFAULT '0',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=193 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `monitor_union_get_paper` */
 
@@ -84,9 +86,10 @@ CREATE TABLE `monitor_union_get_paper` (
   `jdbc_execute_count` int(11) unsigned NOT NULL DEFAULT '0',
   `jdbc_execute_peak` int(11) unsigned NOT NULL DEFAULT '0',
   `jdbc_execute_time_millis` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `histogram` varchar(255) DEFAULT NULL,
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=308 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `monitor_union_submit_score` */
 
@@ -101,9 +104,10 @@ CREATE TABLE `monitor_union_submit_score` (
   `jdbc_execute_count` int(11) unsigned NOT NULL DEFAULT '0',
   `jdbc_execute_peak` int(11) unsigned NOT NULL DEFAULT '0',
   `jdbc_execute_time_millis` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `histogram` varchar(255) DEFAULT NULL,
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=308 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `record_single_all` */
 
@@ -117,7 +121,7 @@ CREATE TABLE `record_single_all` (
   `avg_jdbc_get_time` bigint(20) DEFAULT NULL,
   `creat_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `record_single_get_paper` */
 
@@ -132,7 +136,7 @@ CREATE TABLE `record_single_get_paper` (
   `avg_jdbc_get_time` bigint(20) DEFAULT NULL,
   `creat_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `record_single_submit_score` */
 
@@ -147,7 +151,7 @@ CREATE TABLE `record_single_submit_score` (
   `avg_jdbc_get_time` bigint(20) DEFAULT NULL,
   `creat_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `record_union_all` */
 
@@ -161,7 +165,7 @@ CREATE TABLE `record_union_all` (
   `avg_jdbc_get_time` bigint(20) DEFAULT NULL,
   `creat_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `record_union_get_paper` */
 
@@ -176,7 +180,7 @@ CREATE TABLE `record_union_get_paper` (
   `avg_jdbc_get_time` bigint(20) DEFAULT NULL,
   `creat_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `record_union_submit_score` */
 
@@ -191,9 +195,7 @@ CREATE TABLE `record_union_submit_score` (
   `avg_jdbc_get_time` bigint(20) DEFAULT NULL,
   `creat_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
-
-/*Table structure for table `score` */
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `student` */
 
