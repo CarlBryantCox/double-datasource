@@ -1,15 +1,10 @@
 package com.chw.test.task;
 
 import com.alibaba.fastjson.JSON;
+import com.chw.test.dto.DruidUrlMonitorAllJson;
 import com.chw.test.dto.DruidUrlMonitorResultJson;
-import com.chw.test.entity.MonitorSingleGetPaper;
-import com.chw.test.entity.MonitorSingleSubmitScore;
-import com.chw.test.entity.MonitorUnionGetPaper;
-import com.chw.test.entity.MonitorUnionSubmitScore;
-import com.chw.test.service.MonitorSingleGetPaperService;
-import com.chw.test.service.MonitorSingleSubmitScoreService;
-import com.chw.test.service.MonitorUnionGetPaperService;
-import com.chw.test.service.MonitorUnionSubmitScoreService;
+import com.chw.test.entity.*;
+import com.chw.test.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -31,6 +26,8 @@ public class MarkMonitor {
     private static final String url2 = "http://xn.jtyedu.com/proxy/v1/smart/yuejuan-single-business/druid/weburi-/api/markingTask/submitScore.json";
     private static final String url3 = "http://xn.jtyedu.com/proxy/v1/smart/yuejuan-union-business/druid/weburi-/api/markingTask/getPaper.json";
     private static final String url4 = "http://xn.jtyedu.com/proxy/v1/smart/yuejuan-union-business/druid/weburi-/api/markingTask/submitScore.json";
+    private static final String url5 = "http://xn.jtyedu.com/proxy/v1/smart/yuejuan-single-business/druid/webapp.json";
+    private static final String url6 = "http://xn.jtyedu.com/proxy/v1/smart/yuejuan-union-business/druid/webapp.json";
 
     @Resource
     private RestTemplate restTemplate;
@@ -46,6 +43,12 @@ public class MarkMonitor {
 
     @Resource
     private MonitorUnionSubmitScoreService monitorUnionSubmitScoreService;
+
+    @Resource
+    private MonitorSingleAllService monitorSingleAllService;
+
+    @Resource
+    private MonitorUnionAllService monitorUnionAllService;
 
 
     //单位毫秒
@@ -74,9 +77,19 @@ public class MarkMonitor {
                 monitorUnionGetPaperService.save(MonitorUnionGetPaper.getBean(druidUrlMonitorResultJson3.getContent()));
             }
             ResponseEntity<String> response4 = restTemplate.exchange(url4, HttpMethod.POST, requestEntity, String.class);
-            DruidUrlMonitorResultJson druidUrlMonitorResultJson = JSON.parseObject(response4.getBody(), DruidUrlMonitorResultJson.class);
-            if(druidUrlMonitorResultJson!=null && druidUrlMonitorResultJson.getContent()!=null){
-                monitorUnionSubmitScoreService.save(MonitorUnionSubmitScore.getBean(druidUrlMonitorResultJson.getContent()));
+            DruidUrlMonitorResultJson druidUrlMonitorResultJson4 = JSON.parseObject(response4.getBody(), DruidUrlMonitorResultJson.class);
+            if(druidUrlMonitorResultJson4!=null && druidUrlMonitorResultJson4.getContent()!=null){
+                monitorUnionSubmitScoreService.save(MonitorUnionSubmitScore.getBean(druidUrlMonitorResultJson4.getContent()));
+            }
+            ResponseEntity<String> response5 = restTemplate.exchange(url5, HttpMethod.POST, requestEntity, String.class);
+            DruidUrlMonitorAllJson druidUrlMonitorResultJson5 = JSON.parseObject(response5.getBody(), DruidUrlMonitorAllJson.class);
+            if(druidUrlMonitorResultJson5!=null && druidUrlMonitorResultJson5.getContent().get(0)!=null){
+                monitorSingleAllService.save(MonitorSingleAll.getBean(druidUrlMonitorResultJson5.getContent().get(0)));
+            }
+            ResponseEntity<String> response6 = restTemplate.exchange(url6, HttpMethod.POST, requestEntity, String.class);
+            DruidUrlMonitorAllJson druidUrlMonitorResultJson6 = JSON.parseObject(response6.getBody(), DruidUrlMonitorAllJson.class);
+            if(druidUrlMonitorResultJson6!=null && druidUrlMonitorResultJson6.getContent().get(0)!=null){
+                monitorUnionAllService.save(MonitorUnionAll.getBean(druidUrlMonitorResultJson6.getContent().get(0)));
             }
         } catch (RestClientException e) {
             log.info(e.toString());
