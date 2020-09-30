@@ -120,7 +120,15 @@
             <artifactId>java-sizeof</artifactId>
             <version>0.0.5</version>
         </dependency>
-
-
     </dependencies>
+
+    <build>
+        <plugins>
+            <!--可以将应用打成一个可执行的jar包-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
