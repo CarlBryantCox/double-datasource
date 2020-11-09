@@ -50,6 +50,9 @@ public class MarkMonitor {
     @Resource
     private MonitorUnionAllService monitorUnionAllService;
 
+    @Resource
+    private SysUserService sysUserService;
+
 
     //单位毫秒
     @Scheduled(fixedDelay = 30000)
@@ -91,10 +94,27 @@ public class MarkMonitor {
             if(druidUrlMonitorResultJson6!=null && druidUrlMonitorResultJson6.getContent().get(0)!=null){
                 monitorUnionAllService.save(MonitorUnionAll.getBean(druidUrlMonitorResultJson6.getContent().get(0)));
             }
+            sysUserService.getRecord(2);
         } catch (RestClientException e) {
             log.info(e.toString());
         }
         log.info("----获取监控记录完成----"+ LocalDateTime.now());
     }
+
+    /*
+    TRUNCATE TABLE monitor_single_all;
+    TRUNCATE TABLE monitor_single_get_paper;
+    TRUNCATE TABLE monitor_single_submit_score;
+    TRUNCATE TABLE monitor_union_all;
+    TRUNCATE TABLE monitor_union_get_paper;
+    TRUNCATE TABLE monitor_union_submit_score;
+
+    TRUNCATE TABLE record_single_all;
+    TRUNCATE TABLE record_single_get_paper;
+    TRUNCATE TABLE record_single_submit_score;
+    TRUNCATE TABLE record_union_all;
+    TRUNCATE TABLE record_union_get_paper;
+    TRUNCATE TABLE record_union_submit_score;
+    */
 
 }

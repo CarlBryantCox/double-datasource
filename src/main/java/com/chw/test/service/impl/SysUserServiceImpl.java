@@ -103,7 +103,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         queryWrapper.orderByDesc("id");
         queryWrapper.last("LIMIT "+size);
         List<MonitorSingleGetPaper> list = monitorSingleGetPaperService.list(queryWrapper);
-        if(!list.isEmpty()){
+        if(list.size()>1){
             for (int i = list.size()-1; i > 0; i--) {
                 MonitorSingleGetPaper newRecord = list.get(i-1);
                 MonitorSingleGetPaper oldRecord = list.get(i);
@@ -131,7 +131,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         queryWrapper.orderByDesc("id");
         queryWrapper.last("LIMIT "+size);
         List<MonitorSingleSubmitScore> list = monitorSingleSubmitScoreService.list(queryWrapper);
-        if(!list.isEmpty()){
+        if(list.size()>1){
             for (int i = list.size()-1; i > 0; i--) {
                 MonitorSingleSubmitScore newRecord = list.get(i-1);
                 MonitorSingleSubmitScore oldRecord = list.get(i);
@@ -159,7 +159,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         queryWrapper.orderByDesc("id");
         queryWrapper.last("LIMIT "+size);
         List<MonitorSingleAll> list = monitorSingleAllService.list(queryWrapper);
-        if(!list.isEmpty()){
+        if(list.size()>1){
             for (int i = list.size()-1; i > 0; i--) {
                 MonitorSingleAll newRecord = list.get(i-1);
                 MonitorSingleAll oldRecord = list.get(i);
@@ -186,7 +186,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         queryWrapper.orderByDesc("id");
         queryWrapper.last("LIMIT "+size);
         List<MonitorUnionGetPaper> list = monitorUnionGetPaperService.list(queryWrapper);
-        if(!list.isEmpty()){
+        if(list.size()>1){
             for (int i = list.size()-1; i > 0; i--) {
                 MonitorUnionGetPaper newRecord = list.get(i-1);
                 MonitorUnionGetPaper oldRecord = list.get(i);
@@ -214,7 +214,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         queryWrapper.orderByDesc("id");
         queryWrapper.last("LIMIT "+size);
         List<MonitorUnionSubmitScore> list = monitorUnionSubmitScoreService.list(queryWrapper);
-        if(!list.isEmpty()){
+        if(list.size()>1){
             for (int i = list.size()-1; i > 0; i--) {
                 MonitorUnionSubmitScore newRecord = list.get(i-1);
                 MonitorUnionSubmitScore oldRecord = list.get(i);
@@ -242,7 +242,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         queryWrapper.orderByDesc("id");
         queryWrapper.last("LIMIT "+size);
         List<MonitorUnionAll> list = monitorUnionAllService.list(queryWrapper);
-        if(!list.isEmpty()){
+        if(list.size()>1){
             for (int i = list.size()-1; i > 0; i--) {
                 MonitorUnionAll newRecord = list.get(i-1);
                 MonitorUnionAll oldRecord = list.get(i);
