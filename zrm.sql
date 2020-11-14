@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.24 (32 bit)
 MySQL - 5.7.17-log : Database - zrm
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -204,6 +205,17 @@ CREATE TABLE `student` (
   `student_name` varchar(16) DEFAULT NULL,
   PRIMARY KEY (`student_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `gc_union_log` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `gc_count` int(11) unsigned NOT NULL,
+  `gc_time` double unsigned NOT NULL,
+  `count_gap` int(11) unsigned NOT NULL DEFAULT '0',
+  `time_gap` double unsigned NOT NULL DEFAULT '0',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

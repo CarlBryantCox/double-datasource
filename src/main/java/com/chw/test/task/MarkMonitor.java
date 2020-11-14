@@ -53,6 +53,9 @@ public class MarkMonitor {
     @Resource
     private SysUserService sysUserService;
 
+    @Resource
+    private GcUnionLogService gcUnionLogService;
+
 
     //单位毫秒
     @Scheduled(fixedDelay = 30000)
@@ -94,6 +97,7 @@ public class MarkMonitor {
             if(druidUrlMonitorResultJson6!=null && druidUrlMonitorResultJson6.getContent().get(0)!=null){
                 monitorUnionAllService.save(MonitorUnionAll.getBean(druidUrlMonitorResultJson6.getContent().get(0)));
             }
+            gcUnionLogService.saveGcLog();
             sysUserService.getRecord(2);
         } catch (RestClientException e) {
             log.info(e.toString());
@@ -115,6 +119,8 @@ public class MarkMonitor {
     TRUNCATE TABLE record_union_all;
     TRUNCATE TABLE record_union_get_paper;
     TRUNCATE TABLE record_union_submit_score;
+
+    TRUNCATE TABLE gc_union_log;
     */
 
 }
